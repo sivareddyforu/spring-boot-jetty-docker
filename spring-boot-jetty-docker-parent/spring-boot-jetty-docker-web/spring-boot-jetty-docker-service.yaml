@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: spring-boot-jetty-docker
+  labels:
+    app: spring-boot-jetty-docker
+    tier: frontend
+
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: http-server
+  selector:
+    app: spring-boot-jetty-docker
+    tier: frontend
+
